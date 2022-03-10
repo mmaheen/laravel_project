@@ -27,6 +27,9 @@
                     Ordered Medicine
                 </th>
                 <th>
+                    Unit Price
+                </th>
+                <th>
                     Total Price
                 </th>
                 <th>
@@ -46,6 +49,7 @@
                         <td>{{$o->medicine_id}}</td>
                         <td>{{$o->order_quantity}}</td>
                         <td class = "text-success">{{$o->medicine->name}}</td>
+                        <td class = "text-success">{{$o->medicine->unit_price}}</td>
                         <td class = "text-danger">{{$o->total_price}}</td>
                         <td>{{$o->created_at}}</td>
                         <td>{{$o->updated_at}}</td>

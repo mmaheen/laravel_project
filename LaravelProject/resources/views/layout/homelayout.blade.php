@@ -9,8 +9,10 @@
         <center>
         <div id = "header">
         <a href = "{{route('home')}}">Home</a>
-            <a href = "{{route('registration')}}">Registration</a>
-            <a href = "{{route('login')}}">Login</a>
+            <a href = "{{route('customer.registration')}}">Sign Up</a>
+            @if(!Session::has('customer'))<a href = "{{route('login')}}">Login</a><br>@endif
+            @if(Session::has('customer'))<a href = "{{route('admin.logout')}}">Log out</a>@endif
+
 
         </div>
 

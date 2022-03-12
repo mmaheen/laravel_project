@@ -6,7 +6,7 @@
         <body>
             <h3>Registration</h3>
 
-            <form action = "{{route('register.submit')}}" method = "post">
+            <form action = "{{route('register.submit')}}" method = "post" enctype = "multipart/form-data">
                 {{csrf_field()}}
 
                 <input type = "text" name = "name" value = "{{old('name')}}" placeholder = "Full Name"><br>
@@ -38,6 +38,11 @@
                 @error('confirm_password')
                     <span class = "text-danger">{{$message}}</span> <br>
                 @enderror
+
+                <input type = "file" name = "image"><br>
+            @error('image')
+                <span class = "text-danger">{{$message}}</span><br>
+            @enderror
                 <input type = "submit" class = "btn btn-primary" value = "Register">
                 
             </form>

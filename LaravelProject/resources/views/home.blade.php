@@ -38,7 +38,7 @@
                         <td>{{$m->name}}</td>
                         <td class = "text-success">{{$m->unit_price}} Taka</td>
                         <td class = "text-danger">{{$m->stock}} Units</td>
-                        <td>{{$m->description}} Units</td>
+                        <td>{{$m->description}}</td>
                         
                         
                     </tr>

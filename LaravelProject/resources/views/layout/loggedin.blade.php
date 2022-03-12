@@ -9,6 +9,7 @@
                
                 <a href = "{{route('medicine.add')}}"> Add Medicine </a><br>
                 <a href = "{{route('order.list')}}"> Show Order List </a><br>
+                <a href = "{{route('registration')}}">Admin Registration</a>
                 <a href= "{{route('admin.logout')}}"> Log out </a>
             </div>
             @yield('content')

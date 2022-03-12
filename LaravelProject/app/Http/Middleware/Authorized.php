@@ -18,7 +18,10 @@ class Authorized
     {
         if($request->session()->has('username'))
             return $next($request);
-        
+            
+        else if($request->session()->has('customer'))
+            return $next($request);
+    
         else
             return redirect()->route('login');
     }

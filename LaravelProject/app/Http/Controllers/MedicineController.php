@@ -9,7 +9,7 @@ class MedicineController extends Controller
 {
     //
     public function medicine(){
-        return view ('addmedicine');
+        return view ('medicine.addmedicine');
     }
 
     public function addmedicine(Request $req)
@@ -50,12 +50,12 @@ class MedicineController extends Controller
             return redirect()->route('login');
         }*/
         $medicines = Medicine::all();
-        return view ('medicinelist')->with('medicines',$medicines);
+        return view ('medicine.medicinelist')->with('medicines',$medicines);
     }
 
     public function editmedicine(Request $req){
         $m = Medicine::where('id',$req->id)->first();
-        return view('updatemedicine')->with('m',$m);
+        return view('medicine.updatemedicine')->with('m',$m);
     }
 
     public function updatemedicine(Request $req){
@@ -96,6 +96,6 @@ class MedicineController extends Controller
 
     public function medicinedetails(Request $req){
         $medicine = Medicine::where('id',$req->id)->first();
-        return view ('medicinedetails')->with('medicine',$medicine);
+        return view ('medicine.medicinedetails')->with('medicine',$medicine);
     }
 }

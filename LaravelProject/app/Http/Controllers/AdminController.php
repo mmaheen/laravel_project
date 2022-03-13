@@ -54,7 +54,7 @@ class AdminController extends Controller
         if ($c) {
             session()->put('customer',$c->username);
             session()->flash('msglogin', 'Customer Login Success');
-            return redirect()->route('medicine.details')->with('c',$c);
+            return redirect()->route('home')->with('c',$c);
         }
         else return 'login Failed';
     }

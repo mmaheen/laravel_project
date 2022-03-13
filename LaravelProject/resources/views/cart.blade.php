@@ -9,16 +9,10 @@
         <table>
             <tr>
                 <th>
-                    ID
-                </th>
-                <th>
                     Patient ID
                 </th>
                 <th>
                     Patient Name
-                </th>
-                <th>
-                    Deliveryman ID
                 </th>
                 <th>
                     Medicine ID
@@ -44,13 +38,9 @@
             </tr>
             
             <tr>
-                @foreach($order as $o)
+                @foreach($cart as $o)
                     <tr align = "center">
-                        <td>{{$o->id}}</td>
-                        <td>{{$o->patient_id}}</td>
-                        
-                        <td>{{$o->deliveryman_id}}</td>
-                        <td>{{$o->medicine_id}}</td>
+                        <td>{{$o->medicine->id}}</td>
                         <td>{{$o->order_quantity}}</td>
                         <td class = "text-success">{{$o->medicine->name}}</td>
                         <td class = "text-success">{{$o->medicine->unit_price}}</td>

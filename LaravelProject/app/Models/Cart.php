@@ -7,12 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Medicine;
 use App\Models\Customer;
 
-class Order extends Model
+class Cart extends Model
 {
     use HasFactory;
-
     public function medicine(){
-        return $this->belongsTo(Medicine::class);
+        return $this->belongsTo(Medicine::class,'medicine_id');
     }
 
     public function customer(){

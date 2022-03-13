@@ -1,4 +1,4 @@
-@extends('layout.homelayout')
+@extends('layout.loggedin')
 @section('content')
     <html>
         <head></head>

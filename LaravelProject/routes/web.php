@@ -52,4 +52,7 @@ Route::get('/medicine/order/{id}',[PageController::class,'ordermedicine'])->name
 Route::get('customer/registration',[CustomerController::class,'registration'])->name('customer.registration');
 Route::post('customer/registration',[CustomerController::class,'registersubmit'])->name('customer.registration');
 
+Route::get('customer/cart',[OrderController::class,'cartlist'])->name('cartlist');
+Route::get('/cart',[OrderController::class,'cart'])->name('cart');
 //Route::get('/logout',[CustomerController::class,'logout'])->name('customer.logout');
+Route::post('/cart',[OrderController::class, 'cart']);

@@ -6,6 +6,7 @@
         <body>
             <span class = "text-success">{{Session::get('msg')}}</span>
             <span class = "text-success">{{Session::get('logincus')}}</span>
+            <span class = "text-danger">{{Session::get('loggedout')}}</span>
             
             <h1>Home</h1>
 

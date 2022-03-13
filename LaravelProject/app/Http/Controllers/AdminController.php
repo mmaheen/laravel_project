@@ -61,6 +61,7 @@ class AdminController extends Controller
 
     public function logout(){
         session()->flush();
+        session()->flash('loggedout','Logged Out');
         return redirect()->route('home');
     }
 

@@ -6,7 +6,8 @@
     <body>
         <center>
             <div>
-               
+                <a href= "{{route('admin.profile')}}">Profile  </a><br>
+                <a href= "{{route('medicine.list')}}">Medicine List </a>
                 <a href = "{{route('medicine.add')}}"> Add Medicine </a><br>
                 <a href = "{{route('order.list')}}"> Show Order List </a><br>
                 <a href = "{{route('registration')}}">Admin Registration</a>

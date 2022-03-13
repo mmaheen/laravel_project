@@ -11,7 +11,7 @@
         <a href = "{{route('home')}}">Home</a>
             <a href = "{{route('customer.registration')}}">Sign Up</a>
             @if(!Session::has('customer'))<a href = "{{route('login')}}">Login</a><br>@endif
-            @if(Session::has('customer'))<a href = "{{route('admin.logout')}}">Log out</a>@endif
+            @if(Session::has('customer'))<a href = "{{route('admin.logout')}}">Log out</a> <a href = "{{route('customer.profile')}}">Profile</a>@endif
 
 
         </div>

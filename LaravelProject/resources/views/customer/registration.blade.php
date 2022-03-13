@@ -7,7 +7,7 @@
         <center>
 
         <h5 style="color: blue;"><u>New Customer Registration</u></h5>
-            <form action="{{route('customer.registration')}}" method="post">
+            <form action="{{route('customer.registration')}}" method="post" enctype = "multipart/form-data">
             {{csrf_field()}}
                 <table>
                     <tr>
@@ -54,6 +54,14 @@
                         <td>Confirm Password:</td>
                         <td><input type="password" name="confirm_password" placeholder="Confirm your Password"></td>
                         @error('confirm_password')
+                        <td class="text-danger">{{$message}}*</td>
+                        @enderror
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td><input type = "file" name = "image"><br></td>
+                        @error('image')
                         <td class="text-danger">{{$message}}*</td>
                         @enderror
                     </tr>

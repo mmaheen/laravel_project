@@ -40,9 +40,9 @@
                 @enderror
 
                 <input type = "file" name = "image"><br>
-            @error('image')
-                <span class = "text-danger">{{$message}}</span><br>
-            @enderror
+                @error('image')
+                    <span class = "text-danger">{{$message}}</span><br>
+                @enderror
                 <input type = "submit" class = "btn btn-primary" value = "Register">
                 
             </form>

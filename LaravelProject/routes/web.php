@@ -49,10 +49,22 @@ Route::get('/logout',[AdminController::class,'logout'])->name('admin.logout');
 Route::get('/order/list',[OrderController::class,'orderlist'])->name('order.list')->middleware('authorized');
 Route::get('/medicine/order/{id}',[PageController::class,'ordermedicine'])->name('order.medicine');
 
-Route::get('customer/registration',[CustomerController::class,'registration'])->name('customer.registration');
-Route::post('customer/registration',[CustomerController::class,'registersubmit'])->name('customer.registration');
+Route::get('/customer/registration',[CustomerController::class,'registration'])->name('customer.registration');
+Route::post('/customer/registration',[CustomerController::class,'registersubmit'])->name('customer.registration');
 
-Route::get('customer/cart',[OrderController::class,'cartlist'])->name('cartlist');
-Route::get('/cart',[OrderController::class,'cart'])->name('cart');
-//Route::get('/logout',[CustomerController::class,'logout'])->name('customer.logout');
-Route::post('/cart',[OrderController::class, 'cart']);
+Route::get('/customer/profile',[CustomerController::class,'profile'])->name('customer.profile')->middleware('authorized');
+Route::post('/customer/name/update',[CustomerController::class,'nameupdate'])->name('customer.name.update')->middleware('authorized');
+Route::get('/customer/name/update',[CustomerController::class,'nameedit'])->name('customer.name.update')->middleware('authorized');
+
+Route::post('/customer/password/update',[CustomerController::class,'passwordupdate'])->name('customer.password.update')->middleware('authorized');
+Route::get('/customer/password/update',[CustomerController::class,'passwordedit'])->name('customer.password.update')->middleware('authorized');
+
+Route::get('/admin/profile',[AdminController::class,'profile'])->name('admin.profile')->middleware('authorized');
+Route::post('/admin/name/update',[AdminController::class,'nameupdate'])->name('admin.name.update')->middleware('authorized');
+Route::get('/admin/name/update',[AdminController::class,'nameedit'])->name('admin.name.update')->middleware('authorized');
+
+Route::post('/admin/password/update',[AdminController::class,'passwordupdate'])->name('admin.password.update')->middleware('authorized');
+Route::get('/admin/password/update',[AdminController::class,'passwordedit'])->name('admin.password.update')->middleware('authorized');
+
+Route::get('/admin/change/profilepicture',[AdminController::class,'pictureedit'])->name('admin.change.picture')->middleware('authorized');
+Route::post('/admin/change/profilepicture',[AdminController::class,'pictureupdate'])->name('admin.change.picture')->middleware('authorized');

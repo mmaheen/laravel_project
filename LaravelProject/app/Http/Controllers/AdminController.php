@@ -53,7 +53,7 @@ class AdminController extends Controller
         $c = Customer::where('username', $req->username)-> where('password',md5($req->password))->first();
         if ($c) {
             session()->put('customer',$c->username);
-            session()->flash('msglogin', 'Customer Login Success');
+            session()->flash('logincus', 'Customer Login Success');
             return redirect()->route('home')->with('c',$c);
         }
         else return 'login Failed';
@@ -61,9 +61,65 @@ class AdminController extends Controller
 
     public function logout(){
         session()->flush();
-        return redirect()->route('login');
+        return redirect()->route('home');
     }
 
+    public function profile(){
+        $ad = Admin::where('username',session()->get('username'))->first();
 
+        return view('admin.profile')->with('ad',$ad);
+    }
+
+    public function nameedit(){
+        $ad = Admin::where('username',session()->get('username'))->first();
+        return view('admin.nameupdate')->with('ad',$ad);
+    }
     
+    public function nameupdate(Request $req){
+        $req->validate(
+            ['name' => 'required']
+        );
+        $ad = Admin::where('username',session()->get('username'))->first();
+        $ad->name = $req->name;
+        $ad->save();
+        return redirect()->route('admin.profile')->with('ad',$ad);
+    }
+
+    public function passwordedit(){
+        $ad = Admin::where('username',session()->get('username'))->first();
+        return view('admin.passwordupdate')->with('ad',$ad);
+    }
+
+    public function passwordupdate(Request $req){
+        $req->validate(
+            [
+                //'old_password' => 'required|same:customers,md5(password)',
+                'new_password' => 'required',
+                'confirm_password' => 'required|same:new_password'
+            ]
+        );
+        $ad = Admin::where('username',session()->get('username'))->first();
+        $ad->password = md5($req->new_password);
+        $ad->save();
+        return redirect()->route('admin.profile')->with('ad',$ad);
+    }
+
+    public function pictureedit(){
+        $ad = Admin::where('username',session()->get('username'))->first();
+        return view('admin.pictureupdate')->with('ad',$ad);
+    }
+
+    public function pictureupdate(Request $req){
+        /*$req->validate(
+            [
+                //'old_password' => 'required|same:customers,md5(password)',
+                'new_password' => 'required',
+                'confirm_password' => 'required|same:new_password'
+            ]
+        );*/
+        $ad = Admin::where('username',session()->get('username'))->first();
+        
+        $ad->save();
+        return redirect()->route('admin.profile')->with('ad',$ad);
+    }
 }

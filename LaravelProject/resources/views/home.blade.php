@@ -4,6 +4,9 @@
         <head></head>
 
         <body>
+            <span class = "text-success">{{Session::get('msg')}}</span>
+            <span class = "text-success">{{Session::get('logincus')}}</span>
+            
             <h1>Home</h1>
 
             <table>

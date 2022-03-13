@@ -68,3 +68,6 @@ Route::get('/admin/password/update',[AdminController::class,'passwordedit'])->na
 
 Route::get('/admin/change/profilepicture',[AdminController::class,'pictureedit'])->name('admin.change.picture')->middleware('authorized');
 Route::post('/admin/change/profilepicture',[AdminController::class,'pictureupdate'])->name('admin.change.picture')->middleware('authorized');
+
+Route::get('/customer/change/profilepicture',[CustomerController::class,'pictureedit'])->name('customer.change.picture')->middleware('authorized');
+Route::post('/customer/change/profilepicture',[CustomerController::class,'pictureupdate'])->name('customer.change.picture')->middleware('authorized');

@@ -80,4 +80,19 @@ class CustomerController extends Controller
         $cus->save();
         return redirect()->route('customer.profile')->with('cus',$cus);
     }
+
+    public function pictureedit(){
+        $cus = Customer::where('username',session()->get('customer'))->first();
+        return view('customer.pictureupdate')->with('cus',$cus);
+    }
+
+    public function pictureupdate(Request $req){
+        $cus = Customer::where('username',session()->get('customer'))->first();
+        $filename = $req->username.'.'.$req->file('image')->getClientOriginalExtension();
+        $req->file('image')->storeAs('public/CustomerImage',$filename);
+
+        $cus->image = "storage/CustomerImage/".$filename;
+        $cus->save();
+        return redirect()->route('customer.profile')->with('cus',$cus);
+    }
 }

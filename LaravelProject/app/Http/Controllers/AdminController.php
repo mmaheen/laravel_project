@@ -110,15 +110,11 @@ class AdminController extends Controller
     }
 
     public function pictureupdate(Request $req){
-        /*$req->validate(
-            [
-                //'old_password' => 'required|same:customers,md5(password)',
-                'new_password' => 'required',
-                'confirm_password' => 'required|same:new_password'
-            ]
-        );*/
         $ad = Admin::where('username',session()->get('username'))->first();
-        
+        $filename = $req->username.'.'.$req->file('image')->getClientOriginalExtension();
+        $req->file('image')->storeAs('public/AdminImage',$filename);
+
+        $ad->image = "storage/AdminImage/".$filename;
         $ad->save();
         return redirect()->route('admin.profile')->with('ad',$ad);
     }

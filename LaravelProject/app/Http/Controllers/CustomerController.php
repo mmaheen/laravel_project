@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use App\Models\Cart;
+use App\Models\Medicine;
 
 class CustomerController extends Controller
 {
@@ -94,5 +96,17 @@ class CustomerController extends Controller
         $cus->image = "storage/CustomerImage/".$filename;
         $cus->save();
         return redirect()->route('customer.profile')->with('cus',$cus);
+    }
+
+    public function cart(Request $req){
+        $medicine = Medicine::where('id',$req->id)->first();
+
+        $medicine = Medicine::where('id',$req->id)->first();
+
+
+        $customer = Customer::where('username',session()->get('customer'))->first();
+        $cart = Cart::where('customer_id',$customer->id);
+        return view('customer.cart')->with('medicine',$medicine)
+        ->with('cart',$cart);
     }
 }

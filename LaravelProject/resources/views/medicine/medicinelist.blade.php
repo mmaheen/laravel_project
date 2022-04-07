@@ -16,11 +16,9 @@
             Medicine List
         </h4>
 
-        <table>
-            <tr align = "center">
-                <th>
-                    Sample
-                </th>
+        <table class = "table">
+            <tr>
+                <th></th>
 
                 <th>
                     Name
@@ -44,7 +42,7 @@
 
             <tr>
                 @foreach($medicines as $m)
-                    <tr align = "center">
+                    <tr>
                         <td><img src = "{{asset($m->image)}}" height = "100px" width = "100px"></td>
                         <td>{{$m->name}}</td>
                         <td class = "text-success">{{$m->unit_price}} Taka</td>

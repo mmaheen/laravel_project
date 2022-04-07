@@ -3,13 +3,28 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Hello from './Component/Hello'
 import Top from './Component/Top'
+import Home from './Component/Home'
+import Login from './Component/Login'
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import Post from './Component/Post'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Top/>
-    <Hello />
+    {/* <BrowserRouter>
+      <Top/>
+      <switch>
+        <route exact path = "/"><Home /></route>
+        <route exact path = "/login"><Login /></route>
+      </switch>
+      <switch></switch>
+      <switch></switch>
+      
+      
+    </BrowserRouter> */}
+    <Post/>
+
+    
   </React.StrictMode>,
   document.getElementById('root')
 );

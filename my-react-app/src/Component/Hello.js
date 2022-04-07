@@ -1,5 +1,6 @@
 import React from 'react'
 import Product from './Product'
+import Login from './Login'
 
 const Hello=()=>
 {
@@ -10,6 +11,7 @@ const Hello=()=>
             <Product name = 'Samsung' price = '60000'/>
             <Product name = 'Oppo' price = '30000'/>
             <Product name = 'Xiaomi' price = '8000'/>
+            <Login/>
         </div>
     )
 

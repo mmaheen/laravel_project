@@ -5,6 +5,7 @@ const Top=()=>{
         <div>
             <a href = "">Home</a>
             <a href = "">Profile</a>
+            <a href = "/Login">Login</a>
             <a href = "">Contact</a>
         </div>
     )

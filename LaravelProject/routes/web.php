@@ -39,7 +39,7 @@ Route::get('/edit/medicines/{id}',[MedicineController::class,'editmedicine'])->n
 Route::post('/edit/medicines/{id}',[MedicineController::class,'updatemedicine'])->name('medicine.edit')->middleware('authorized');
 
 Route::get('/details/medicine/{id}/{name}',[MedicineController::class, 'medicinedetails'])->name('medicine.details')->middleware('authorized');
-Route::post('/details/medicine/{id}/{name}',[OrderController::class, 'ordermedicine'])->name('medicine.details')->middleware('authorized');
+Route::post('/details/medicine/{id}/{name}',[OrderController::class, 'cart'])->name('medicine.details')->middleware('authorized');
 
 Route::get('/delete/medicines/{id}',[MedicineController::class,'delete'])->name('medicine.delete')->middleware('authorized');
 
@@ -53,6 +53,7 @@ Route::get('/customer/registration',[CustomerController::class,'registration'])-
 Route::post('/customer/registration',[CustomerController::class,'registersubmit'])->name('customer.registration');
 
 Route::get('/customer/profile',[CustomerController::class,'profile'])->name('customer.profile')->middleware('authorized');
+Route::get('/customer/cart',[OrderController::class,'cartlist'])->name('customer.cart')->middleware('authorized');
 Route::post('/customer/name/update',[CustomerController::class,'nameupdate'])->name('customer.name.update')->middleware('authorized');
 Route::get('/customer/name/update',[CustomerController::class,'nameedit'])->name('customer.name.update')->middleware('authorized');
 
@@ -71,3 +72,11 @@ Route::post('/admin/change/profilepicture',[AdminController::class,'pictureupdat
 
 Route::get('/customer/change/profilepicture',[CustomerController::class,'pictureedit'])->name('customer.change.picture')->middleware('authorized');
 Route::post('/customer/change/profilepicture',[CustomerController::class,'pictureupdate'])->name('customer.change.picture')->middleware('authorized');
+
+//cart
+Route::get('/medicine/addtocart/{id}',[MedicineController::class,'addtocart'])->name('medicine.addtocart')->middleware('authorized');
+Route::get('/emptycart',[MedicineController::class,'emptycart'])->name('medicine.emptycart')->middleware('authorized');
+Route::get('/cart',[MedicineController::class,'mycart'])->name('medicine.mycart')->middleware('authorized');
+
+//checkout
+Route::post('/checkout',[MedicineController::class,'checkout'])->name('checkout')->middleware('authorized');

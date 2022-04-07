@@ -12,6 +12,6 @@ class Medicine extends Model
     public $timestamps = false;
 
     public function cart(){
-        return $this->hasMany(Cart::class,'medicine_id');
+        return $this->belongsTo(Cart::class,'medicine_id');
     }
 }

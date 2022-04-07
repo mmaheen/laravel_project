@@ -11,7 +11,11 @@
             <a href = "{{route('home')}}">Home</a><br>
             
             @if(!Session::has('customer'))<a href = "{{route('login')}}">Login</a> <a href = "{{route('customer.registration')}}">Sign Up</a><br>@endif
-            @if(Session::has('customer'))<a href = "{{route('customer.profile')}}">Profile</a><br><a href = "{{route('admin.logout')}}">Log out</a>@endif
+            @if(Session::has('customer'))
+                <a href = "{{route('customer.profile')}}">Profile</a><br>
+                <a href = "{{route('medicine.mycart')}}">My Cart</a><br>
+                <a href = "{{route('admin.logout')}}">Log out</a>
+            @endif
 
 
         </div>

@@ -27,7 +27,7 @@
                 <span class = "text-danger">{{$message}}</span> <br>
             @enderror
 
-            <textarea name = "description" placeholder = "Description"></textarea><br>
+            <textarea name = "description" placeholder = "Description">{{old('description')}}</textarea><br>
             @error('description')
                 <span class = "text-danger">{{$message}}</span><br>
             @enderror

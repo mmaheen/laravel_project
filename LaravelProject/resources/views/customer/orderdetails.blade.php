@@ -24,7 +24,7 @@
 
             @foreach($order->orderdetails as $p)
                 <tr>
-                    <td><img src="{{$p->product->image}}" height = "100px" width = "100px"></td>
+                    <td><img src="{{asset($p->product->image)}}" height = "100px" width = "100px"></td>
                     <td>{{$p->product->name}}</td>
                     <td>{{$p->unit_price}}</td>
                     <td>{{$p->quantity}}</td>

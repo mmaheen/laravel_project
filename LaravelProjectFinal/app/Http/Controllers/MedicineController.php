@@ -88,12 +88,8 @@ class MedicineController extends Controller
         $m = Medicine::where('id',$req->id)->delete();
         if($m){
             session()->flash('msg','Succesfully Deleted');
-            return redirect()->route('medicine.list');
-            
+            return redirect()->route('medicine.list');          
         }
-
-
-
     }
 
     // public function medicinedetails(Request $req){

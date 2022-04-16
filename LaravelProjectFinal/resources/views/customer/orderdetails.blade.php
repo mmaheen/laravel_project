@@ -13,7 +13,7 @@
         <h5>Order id : {{$order->id}}</h5>
         <h5>Ordered By : {{$order->customer->name}}</h5>
         <h5>Phone : {{$order->customer->phone}}</h5>
-        <h5>Order Details</h5>
+        <h5 class = "text-primary">Order Details</h5>
         <table class = "table table-bordered">
             <tr>
                 <th></th>
@@ -24,9 +24,9 @@
 
             @foreach($order->orderdetails as $p)
                 <tr>
-                    <td><img src="{{$p->product->image}}" height = "100px" width = "100px"></td>
-                    <td>{{$p->product->name}}</td>
-                    <td>{{$p->unit_price}}</td>
+                    <td><img src="{{asset($p->product->image)}}" height = "100px" width = "100px"></td>
+                    <td class = "text-info">{{$p->product->name}}</td>
+                    <td class = "text-danger">{{$p->unit_price}}</td>
                     <td>{{$p->quantity}}</td>
                 </tr>
             @endforeach

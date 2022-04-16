@@ -12,8 +12,8 @@ class Orderdetail extends Model
     use HasFactory;
     public $timestamps = false;
 
-    public function product(){
-        return $this->belongsTo(Medicine::class,'medicine_id');
+    public function medicine(){
+        return $this->hasMany(Medicine::class,'medicine_id');
     }
 
     public function order(){

@@ -23,7 +23,6 @@ class AdminAPIController extends Controller
         $ad->image = $req->image;
         $ad->save();
         return "added";
-        //session()->flash('registration','Suucessfully Registered');
     }
 
     public function list()
@@ -41,6 +40,18 @@ class AdminAPIController extends Controller
             return "failed";
         }
     }
-    
 
+    public function nameupdate(Request $req){
+        $ad = Admin::where('username',$req->username)->where('password',md5($req->password))->first();
+        $ad->name = $req->name;
+        $ad->save();
+        return "Name updated";
+    }
+
+    public function passwordupdate(Request $req){
+        $ad = Admin::where('username',$req->username)->where('password',md5($req->password))->first();
+        $ad->password = md5($req->password);
+        $ad->save();
+        return "Password updated";
+    }
 }

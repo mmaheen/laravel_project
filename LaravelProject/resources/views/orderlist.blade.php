@@ -6,7 +6,7 @@
     </head>
 
     <body>
-        <table>
+        <table class = "table">
             <tr>
                 <th>
                     ID
@@ -18,13 +18,7 @@
                     Patient Name
                 </th>
                 <th>
-                    Deliveryman ID
-                </th>
-                <th>
                     Medicine ID
-                </th>
-                <th>
-                    Order Quantity
                 </th>
                 <th>
                     Ordered Medicine
@@ -45,10 +39,16 @@
             
             <tr>
                 @foreach($order as $o)
-                    <tr align = "center">
-                        <td>{{$o->id}}</td>
-                        <td>{{$o->created_at}}</td>
-                        <td>{{$o->updated_at}}</td>
+                    <tr>
+                        <td>{{$o->order}}</td>
+                        <td>{{$o->order->customer->id}}</td>
+                        <td>{{$o->order->customer->name}}</td>
+                        <td></td>
+                        <td>{{$o->orderdetails->medicine->name}}</td>
+                        <td></td>
+                        <td></td>
+                        <td>{{$o->order->created_at}}</td>
+                        <td>{{$o->order->updated_at}}</td>
                     </tr>
                 @endforeach
             </tr>

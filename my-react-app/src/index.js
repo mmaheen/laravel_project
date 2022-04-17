@@ -5,26 +5,32 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Top from './Component/Top'
 import Home from './Component/Home'
-import Login from './Component/Login'
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Post from './Component/Post'
+import Registration from './Component/Registration'
+import ProductAdd from './Component/ProductAdd'
+import Login from './Component/Login'
+import Profile from './Component/Profile'
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <BrowserRouter>
+    <BrowserRouter>
       <Top/>
-      <switch>
-        <route exact path = "/"><Home /></route>
-        <route exact path = "/login"><Login /></route>
-      </switch>
-      <switch></switch>
-      <switch></switch>
-      
-      
-    </BrowserRouter> */}
-    <Post/>
+      <Switch>
+        <Route exact path = "/">
+          <Home />
+        </Route>
+        
+        <Route exact path = "/login">
+          <Login />
+        </Route>
 
-    
+        <Route exact path = "/registration">
+          <Registration></Registration>
+        </Route>
+
+      </Switch>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

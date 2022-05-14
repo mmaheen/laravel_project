@@ -9,7 +9,7 @@ const Login=()=>{
         e.preventDefault();
         var obj = {username:username,password:password};
         axios.post("http://127.0.0.1:8000/api/admin/login",obj).then((succ)=>{
-            if(succ.data.login == true){
+            if(succ.data.login != "failed"){
                 setMsg("Login Successfull");
             }
             else {

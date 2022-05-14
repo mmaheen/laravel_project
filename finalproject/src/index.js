@@ -8,6 +8,7 @@ import Registration from './Component/Registration';
 import Home from './Component/Home';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Top from './Component/Top';
+import Mail from './Component/Mail';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,6 +23,9 @@ root.render(
         </Route>
 
         <Route path = "/registration" element = {<Registration/>}>
+        </Route>
+
+        <Route path = "/mail" element = {<Mail/>}>
         </Route>
       </Routes>
     </BrowserRouter>

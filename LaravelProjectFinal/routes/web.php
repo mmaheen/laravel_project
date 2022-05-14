@@ -97,3 +97,5 @@ Route::post('/checkout',[MedicineController::class,'checkout'])->name('checkout'
 //customer myorder
 Route::get('/customer/myorder',[CustomerController::class,'myorders'])->name('customer.myorders')->middleware('authorized');
 Route::get('/customer/myorder/details/{id}',[CustomerController::class,'orderdetails'])->name('customer.myorders.details')->middleware('authorized');
+
+Route::get('/email',[AdminController::class, 'email']);

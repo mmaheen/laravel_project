@@ -34,7 +34,8 @@ Route::post('/medicine/edit/{id}',[ProductAPIController::class,'edit']);
 Route::get('/medicine/delete/{id}',[ProductAPIController::class,'delete']);
 Route::get('/medicine/addtocart/{id}',[ProductAPIController::class,'addtocart']);
 
-Route::get('/mail',[Mailcontroller::class,'mail']);
+Route::get('/mail',[Mailcontroller::class,'mailget']);
+Route::post('/mail',[Mailcontroller::class,'mail']);
 //order
 Route::get('/order/list',[OrderAPIController::class,'list']);
 Route::get('/orderdetails/list',[OrderAPIController::class,'listdetails']);

@@ -20,7 +20,7 @@ class AdminAPIController extends Controller
         $ad->phone = $req->phone;
         $ad->password = md5($req->password);
         //$ad->image = "storage/AdminImage/".$filename;
-        $ad->image = $req->image;
+        $ad->image = "";
         $ad->save();
         return "added";
     }

@@ -1,75 +1,35 @@
-import React from 'react';
+import {useState} from 'react';
+import axios from 'axios';
 
-const Registration = () =>
-{
+const Registration=()=>{
+    const [name,setName] = useState("");
+    const [username,setUsername] = useState("");
+    const [email,setEmail] = useState("");
+    const [phone,setPhone] = useState("");
+    const [password,setPassword] = useState("");
+
+
+    const handleForm=(e)=>{
+        e.preventDefault();
+        var obj = {name:name,username:username,email:email,phone:phone,password:password};
+        
+        axios.post("http://127.0.0.1:8000/api/admin/registration",obj).then((resp)=>{
+            
+        },(err)=>{
+            
+        });
+
+    }
     return(
-        <div>
-            <h3>Registration</h3>
-            <table>
-                <tr>
-                    <td>
-                        Name
-                    </td>
-                    <td>
-                        <input type = "text" placeholder = "Name"></input>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        Username
-                    </td>
-                    <td>
-                        <input type = "text" placeholder = "Username"></input>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        Email
-                    </td>
-                    <td>
-                        <input type = "text" placeholder = "Email"></input>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        Phone
-                    </td>
-                    <td>
-                        <input type = "text" placeholder = "Phone"></input>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        Password
-                    </td>
-                    <td>
-                        <input type = "text" placeholder = "Password"></input>
-                    </td>
-                </tr>
-
-                
-                <tr>
-                    <td>
-                        Image
-                    </td>
-                    <td>
-                        <input type = "file"></input>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td>
-                        <input type = "submit" value = "Register"></input>
-                    </td>
-                </tr>
-            </table>
-        </div>
+        <form onSubmit={handleForm}>
+            <input type="text" value={name} onChange={(e)=>{setName(e.target.value)}} placeholder='Name'></input> <br/>
+            <input type="text" value={username} onChange={(e)=>{setUsername(e.target.value)}} placeholder='User Name'></input> <br/>
+            <input type="text" value={email} onChange={(e)=>{setEmail(e.target.value)}} placeholder='Email'></input> <br/>
+            <input type="text" value={phone} onChange={(e)=>{setPhone(e.target.value)}} placeholder='phone'></input><br/>
+            <input type="text" value={password} onChange={(e)=>{setPassword(e.target.value)}} placeholder='password'></input><br/>
+            <input type="submit" value="Add"/>
+        </form>
     )
-}
 
+}
 export default Registration;

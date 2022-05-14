@@ -119,4 +119,10 @@ class AdminController extends Controller
         $ad->save();
         return redirect()->route('admin.profile')->with('ad',$ad);
     }
+
+    public function email(){
+        $a = Admin::select('email')->get();
+        $b = json_decode($a);
+        return $b;
+    }
 }
